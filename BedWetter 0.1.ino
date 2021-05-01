@@ -6,7 +6,7 @@ parameters. Relay pin is currenlty 2.
 */
 
 //hard coded times in seconds//////////////////////////////////////////////////
-uint16_t WetEvent1 = 10; //hour 1
+uint16_t WetEvent1 = 3600; //hour 1
 uint16_t WetEvent2 = 7200; //hour 2 
 uint16_t WetEvent3 = 10800; //hour 3
 
