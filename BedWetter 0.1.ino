@@ -2,8 +2,9 @@
 Automated device that simulates bed wetting. This version has three coded wet times under WetEvent 1 thru 3.
 Serial print shows current time in seconds after reset and will show on/off message at trigger times. The duration
 is set by changing "BedWetter[0].WetIntervalTime" in setup(). The "BedWetterDevice" struct is setup for future additions of control
-parameters. Relay pin is currenlty 2.
-*/
+parameters. Relay pin is currenlty 2. If the relay behavoir is inverted, swap the HIGH and LOW for the digitalWrite events 
+under RlyInitialization() function.
+*/ 
 
 //hard coded times in seconds//////////////////////////////////////////////////
 uint16_t WetEvent1 = 3600; //hour 1
@@ -93,14 +94,14 @@ void RlyInitialization()
 {
   if (BedWetter[0].SolenoidState == 1)
   {
-    digitalWrite(RelayPin, HIGH);
-    digitalWrite(LED_BUILTIN, HIGH);//debug
+    digitalWrite(RelayPin, HIGH); //Change if relay action is inverted
+    digitalWrite(LED_BUILTIN, HIGH); //debug
     
   }
   else if (BedWetter[0].SolenoidState == 0)
   {
-    digitalWrite(RelayPin, LOW);
-    digitalWrite(LED_BUILTIN, LOW);//debug
+    digitalWrite(RelayPin, LOW); //Change if relay action is inverted
+    digitalWrite(LED_BUILTIN, LOW); //debug
     
   }
 }
