@@ -19,7 +19,7 @@ int8_t LastCursor = 0;
 uint16_t LastButtonPress = 0;
 
 String HomeMessage = "BedWetter";
-String version = "V0.1";
+String version = "V0.2";
 
 int8_t CurrentVal;
 
