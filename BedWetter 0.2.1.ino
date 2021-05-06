@@ -304,7 +304,7 @@ void EventTrigger()
     RlyInitialization();
     RUNLoop = 0;
     Events();
-    if((TIMESVar[0].TotalSleepTime * 60) < seconds)//Stop running after sleep time
+    if((TIMESVar[0].TotalSleepTime * 3600) < seconds)//Stop running after sleep time
     {
       GO = 0;
       RUNLoop = 0;
