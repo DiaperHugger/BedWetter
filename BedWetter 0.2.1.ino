@@ -33,16 +33,10 @@ int8_t LastCursor = 0;
 
 uint16_t LastButtonPress = 0;
 
-String HomeMessage = "BedWetter V0.2";
+String HomeMessage = "BedWetter V0.2.1";
 //String version = "V0.2";
 
 int8_t CurrentVal;
-
-
-
-uint16_t WetEvent1;
-uint16_t WetEvent2;
-uint16_t WetEvent3;
 
 const int pin_RS = 8; 
 const int pin_EN = 9; 
@@ -104,15 +98,13 @@ byte diaperright1[8] = {
 
 struct BedWetterDevice //Attributes
 { 
-  uint8_t WetIntervalTime; //Total time to open valve
-  //uint8_t Probability;
   uint8_t SolenoidState; //0 off, 1 on
   uint8_t Debug;
 };
 
 BedWetterDevice BedWetter[1] =
 {
-  {0, 0, 0}
+  {0, 0}
 };
 
 struct TIMESVariables
