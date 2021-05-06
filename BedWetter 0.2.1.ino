@@ -318,7 +318,7 @@ void EventTrigger()
 void Events() //Triggered by select button and end of EventTrigger stop time
 {
     
-    if((TIMESVar[0].TotalSleepTime != 0) && (WETTINGVar[0].WetInterval != 0))
+    if((TIMESVar[0].TotalSleepTime != 0) && (WETTINGVar[0].WetInterval != 0) && (WETTINGVar[0].WetDuration != 0))
     {
       int T = TIMESVar[0].TotalSleepTime * 3600; //Total sleep time in seconds
       T = ((T / WETTINGVar[0].WetInterval) - WETTINGVar[0].WetDuration); //Fixed interval time division
