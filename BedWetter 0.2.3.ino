@@ -1,7 +1,6 @@
 #include <LiquidCrystal.h>
 #include <EEPROM.h>
 
-
 //Shield button value defaults: right 60, up 200, down 400, left 600, select 800
 const int right = 60;
 const int up = 200;
@@ -34,6 +33,7 @@ uint8_t InitialDelay = 1;
 uint8_t DiaperBlink = 0;
 
 int RelayPin = 0; //Output pin for relay
+int LCDBackLight = 0;
 int ButtonRAW;
 int MenuPosition = 0; 
 int LastMenuPosition = 1;
@@ -208,7 +208,7 @@ void setup()
   
   EEPROM_RECALL();
   pinMode(RelayPin, OUTPUT);
-  pinMode(10, OUTPUT); //LCD BackLight
+  pinMode(LCDBackLight, OUTPUT);
   digitalWrite(10, HIGH); //LCD ON
   
   
