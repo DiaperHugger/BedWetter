@@ -48,7 +48,7 @@ int8_t SPECIAL = 0;
 uint8_t LastButtonPress = 0; //1 right, 2 up, 3 down, 4 left, 5 select 
 uint8_t ButtonDebounce = 0;
 
-String HomeMessage = "BedWetter V0.2.1";
+String HomeMessage = "BedWetter V0.2.3";
 //String version = "V0.2";
 
 
