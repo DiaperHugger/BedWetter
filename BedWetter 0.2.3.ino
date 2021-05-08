@@ -209,7 +209,7 @@ void setup()
   EEPROM_RECALL();
   pinMode(RelayPin, OUTPUT);
   pinMode(LCDBackLight, OUTPUT);
-  digitalWrite(10, HIGH); //LCD ON
+  digitalWrite(LCDBackLight, HIGH); //LCD ON
   
   
   pinMode(LED_BUILTIN, OUTPUT); //For testing
