@@ -3,10 +3,10 @@
 
 //Shield button value defaults: right 60, up 200, down 400, left 600, select 800
 const int right = 60;
-const int up = 220;
-const int down = 430;
-const int left = 640;
-const int select = 850;
+const int up = 200;
+const int down = 400;
+const int left = 600;
+const int select = 800;
   
 uint16_t seconds;
 uint32_t CycleTime;
@@ -407,14 +407,14 @@ void Events() //Triggered by select button and end of EventTrigger stop time
       CurrentInterval = Interval;
       MakeTimes = 0;
       
-      for (int i = 0; i <= 9; i++)
-        {
-          if(INTERVALTimes[i] != 0)
-          {
-            Serial.print(INTERVALTimes[i]);
-            Serial.print(",");
-          }
-        }
+      //for (int i = 0; i <= 9; i++)
+      //  {
+      //    if(INTERVALTimes[i] != 0)
+      //    {
+      //      Serial.print(INTERVALTimes[i]);
+      //      Serial.print(",");
+      //    }
+      // }
     }
       
     if(WETTINGVar[0].Random == 1)
