@@ -19,9 +19,7 @@ Option ONE is a gravity fed drip using the BedWetter as a solenoid control using
 
 Option Two is a pump activated by the relay. The pump and water source should be placed below the resting level so as to not suffer from a syphon effect that could fully drain the liquid source unintentionally. The total volume is determined by the pump flow rate and duration of the activation. All external variables should be considered including by not limited to water temperature, container type, pump style, flow regulation, etc.....
 
-Operation notes:
-
-    The BedWetter will only function if the Total Sleep Time, Wet Interval, and Wet Duration values are NOT zero. The other variables are optional to the function. The SELECT button will initiate the program running and can also pause/resume the current program. Once the device has started the interval and duration times are created. These times will persist if the operation is paused or variables are changed. These times will only be updated if the Total Sleep Time has ended or the Arduino is reset. If a Wet Chance% is entered the device will determine the percentage chance that any activation will happen for the duration of the Total Sleep Time regardless of the other variables. The RunTime counter on the home screen will count regardless of the outcome of the chance. 
+The BedWetter will only function if the Total Sleep Time, Wet Interval, and Wet Duration values are NOT zero. The other variables are optional to the function. The SELECT button will initiate the program running and can also pause/resume the current program. Once the device has started the interval and duration times are created. These times will persist if the operation is paused or variables are changed. These times will only be updated if the Total Sleep Time has ended or the Arduino is reset. If a Wet Chance% is entered the device will determine the percentage chance that any activation will happen for the duration of the Total Sleep Time regardless of the other variables. The RunTime counter on the home screen will count regardless of the outcome of the chance. 
 
 
 List of input variables: 
