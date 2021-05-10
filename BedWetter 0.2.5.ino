@@ -231,8 +231,6 @@ void setup()
   
   RelayPin = CONTROLVar[0].OutputPin; //Pull relay pin from stored value
   digitalWrite(RelayPin, HIGH);
-
-  EEPROM_RECALL();
 }
 
 void loop()
