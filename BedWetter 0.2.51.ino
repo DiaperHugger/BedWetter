@@ -25,7 +25,8 @@ uint32_t CycleTime;  //LCD Diasply loop
 uint32_t CycleTime2; //Duty cycle loop
 //uint32_t CycleTime3;
 
-uint32_t LastTimeMillis;
+uint32_t LastTimeMillisA;
+uint32_t LastTimeMillisB;
 
 uint16_t DutyCycleTime;
 uint16_t DutyPulseTime;
@@ -271,11 +272,12 @@ void DeriveRunningTime()
 {
   if(GO == 0)
   {
-    LastTimeMillis = millis() - BedWetter[0].RunTime;
+    LastTimeMillisA = millis() - LastTimeMillisB;
   }
   else
   {
-    BedWetter[0].RunTime = (millis() - LastTimeMillis) / 1000;
+    LastTimeMillisB = millis() - LastTimeMillisA;
+    BedWetter[0].RunTime = LastTimeMillisB / 1000;
   }
 }
 
