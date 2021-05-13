@@ -52,6 +52,8 @@ List of input variables:
     BackLight: This can control the backlight for the LCD shield and in most cases is pin 10. The pin must be entered manually. USE AT YOUR OWN RISK!
 
     OutPut Pin: This is the output pin for the relay or pump.
+    
+    OutPut Invert: This will invert the output behavior of the relay pin.
 
     (These variables can introduce a duty cycle while the output is active.)
 
