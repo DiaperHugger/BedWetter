@@ -1,4 +1,4 @@
-/*BedWETTER v0.2.6  Updated 5/18/21
+/*BedWETTER v0.2.6(PROFILE TEST) Updated 5/18/21
 This project is part of a collaborative effort to create a "Bed Wetting Simulator". This device is intended to simulate the experience of bed wetting with
 the appropriate hardware. 
 https://www.adisc.org/forum/threads/bed-wetting-simulator-updates.151608/ for discussion and help. 
@@ -9,14 +9,6 @@ THIS CODE COMES WITH NO IMPLIED WARRANTY!! USE AT YOUR OWN RISK!!
 */
 #include <LiquidCrystal.h>
 #include <EEPROM.h>
-#include <OneWire.h>
-#include <DS18B20.h>
-
-const byte ONEWIRE_PIN = 13;
-byte sensorAddress[8] = {0x28, 0xAC, 0xAF, 0x76, 0xE0, 0x1, 0x3C, 0xDC};
-OneWire onewire(ONEWIRE_PIN);
-DS18B20 sensors(&onewire);
-float temperature;
 
 //Profile variables
 float FloodMargin = 0.15; //%
@@ -280,7 +272,7 @@ void EEPROM_RECALL() //EEPROM address layout tied to MenuPosition!  +10 per row.
 void setup()
 {
   Serial.begin(9600);
-  sensors.begin(11); //TEMP
+  
   randomSeed(analogRead(1));
 
   
@@ -310,10 +302,7 @@ void setup()
 
 void loop()
 {
-    sensors.request(sensorAddress);
-    temperature = sensors.readTemperature(sensorAddress);
-    temperature = (temperature*1.8)+32;
-
+    
     seconds = millis() / 1000; //Get seconds from power on
     DeriveRunningTime();
     
@@ -606,22 +595,6 @@ void LCDDisplayData() //MenuPosition = ROW,COLUMN
           lcd.setCursor(3, 1);
           lcd.print("       ");
         }
-
-        
-        if(temperature > 99.9)
-        {
-          lcd.setCursor(10, 1);
-          lcd.print(temperature, 1);
-        }
-        else
-        {
-          lcd.setCursor(10, 1);
-          lcd.print(" ");
-          lcd.setCursor(11, 1);
-          lcd.print(temperature, 1);
-        }
-        lcd.setCursor(15, 1);
-        lcd.print("F");
       }
     
     if((MenuPosition == 0) && (GO == 1))//Diaper animation
