@@ -856,7 +856,7 @@ void ButtonPressCheck()
           
           if((MenuPosition == 0) && (GO != 1))
           {
-            if((NextTriggerEventStart == 0) && (PauseRun == 0))
+            if(NextTriggerEventStart == 0)
             {
               MakeTimes = 1;
               Events();
