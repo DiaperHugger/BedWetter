@@ -54,6 +54,7 @@ uint8_t RandomRun = 0;
 uint8_t MakeTimes = 0;
 uint8_t WetChance = 1;
 uint8_t PauseRun = 0;
+uint8_t NewRunTag = 0;
 
 int8_t CurrentVal;
 int8_t LastCurrentVal;
@@ -583,17 +584,18 @@ void LCDDisplayData() //MenuPosition = ROW,COLUMN
         lcd.setCursor(2, 1);
         lcd.print(BedWetter[0].RunTime);
         
-        if(BedWetter[0].RunTime == 0)
+        if(NewRunTag == 0)
         {
           lcd.setCursor(3, 1);
           lcd.write(126);
           lcd.setCursor(4, 1);
           lcd.print("NewRun");
         }
-        else
+        else if(NewRunTag == 1)
         {
           lcd.setCursor(3, 1);
           lcd.print("       ");
+          NewRunTag = 2;
         }
       }
     
@@ -1131,10 +1133,10 @@ void ButtonPressCheck()
           
           if((MenuPosition == 0) && (GO != 1))
           {
-            //if((NextTriggerEventStart == 0) && (PauseRun == 0))
             if(NextTriggerEventStart == 0)
             {
               MakeTimes = 1;
+              NewRunTag = 1;
               Events();
             }
             GO = 1;
@@ -1532,6 +1534,7 @@ void RESET()
   SPECIAL = 0;
   LastButtonPress = 0; 
   ButtonDebounce = 0;
+  NewRunTag = 0;
   BedWetter[0].RunTime = 0;
   BedWetter[0].SolenoidState = 0;
   RlyInitialization();
