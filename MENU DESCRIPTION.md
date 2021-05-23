@@ -159,7 +159,7 @@ The home screen should now show the total liquid moved in liters.
 
 HEAT: RLYPIN:
 
-This selects the secondary relay pin. 
+This selects the secondary relay pin. The secondary relay pin can be activated by pressing LEFT while on the home screen. If IDLETEMP is 0 the relay should activate immediately showing "H". If IDLETEMP is entered then "h" will be displayed indicating that the program is waiting for the temperature to fall below the IDLETEMP in order to activate the secondary relay pin.
 
 ![heat idletemp](https://user-images.githubusercontent.com/83486730/119260619-794d7d80-bb88-11eb-960b-7a593d026c60.jpg)
 
