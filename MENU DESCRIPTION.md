@@ -74,3 +74,15 @@ This is the number of intervals to divide the TOTAL SLEEP time.
 WETTING: INTVAL DUR/s:
 
 This is the duration in seconds for the wetting event. 
+
+![Profile Flood](https://user-images.githubusercontent.com/83486730/119259492-6f754b80-bb83-11eb-93e6-6089e5007c7d.jpg)
+
+PROFILE: (FLOOD%, HEAVY%, SPURTS%, DAMP%, DRY%)
+
+These are the different profiles to choose a total percentage distribution across (total 100%). You can change the hard coded values to fit your taste. DRY% is a profile where no activation happenes. The outcome of a choosen profile is weighted by the percentage and is choosen once per new run.
+
+![Profile flood dur](https://user-images.githubusercontent.com/83486730/119259623-ed395700-bb83-11eb-9385-d0c5c9a41f0f.jpg)
+
+PROFILE: (FLOOD DUR/s, HEAVY DUR/s, SPURTS DUR/s, DAMP DUR/s)
+
+These are the different durations for each profile to set a target (15% +/- by default). You can change this hard coded percentage to fit the desired randomness.
