@@ -18,5 +18,9 @@ TIMES: TOTAL SLEEP/h:
 
     The total sleep time in hours.
 
-    
+![Times initial](https://user-images.githubusercontent.com/83486730/119258801-1bb53300-bb80-11eb-9bec-b8606fa206ff.jpg)
+
+TIMES: INITIAL DLY/m:
+
+    The initial delay to start the program. This value is added to all three random types.
     
