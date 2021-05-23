@@ -18,9 +18,15 @@ TIMES: TOTAL SLEEP/h:
 
     The total sleep time in hours.
 
-![Times initial](https://user-images.githubusercontent.com/83486730/119258801-1bb53300-bb80-11eb-9bec-b8606fa206ff.jpg)
+![Times initial](https://user-images.githubusercontent.com/83486730/119258828-3687a780-bb80-11eb-927a-79d42fdeac72.jpg)
 
 TIMES: INITIAL DLY/m:
 
     The initial delay to start the program. This value is added to all three random types.
     
+![Wetting chance](https://user-images.githubusercontent.com/83486730/119258892-88303200-bb80-11eb-97c7-c8c3053761f6.jpg)
+
+WETTING: WET CHANCE%:
+
+    This is a percentage chance that any relay activation will happen. If the TOTAL SLEEP is entered the RUNTIME counter will still count.![Uploading Wetting chance.jpg…]()
+ 
