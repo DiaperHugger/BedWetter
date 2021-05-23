@@ -58,9 +58,9 @@ You can check both relay's for operation. For the pump/solenoid relay go to the 
 
 Next choose interval type (NONE, PURE, PROFILE). Enter the desired INTERVAL count and DURATION you want in the WETTING menu. Note that if PROFILE is chosen the INTERVAL and DURATION are ignored in favor of the Profile System.
 
-While on the home screen press the SELECT button to start. If NONE was chosen as the interval type the pump/solenoid relay should activate immediately if there was no INITIAL DLY was entered. If PURE was chosen then random events are generated using INTERVAL and DURATION as limits.
+While on the home screen press the SELECT button to start. If NONE was chosen as the interval type the pump/solenoid relay should activate immediately if there was no INITIAL DLY was entered. If PURE was chosen then random events are generated using INTERVAL and DURATION as limits. Note that the interval times are random however the number of intervals is not.
 
-A chance outcome can be used with the WET CHANCE% under the WETTING menu. This is a percentage chance that any activation happens at all. This option wraps are options chosen for output!
+A chance outcome can be used with the WET CHANCE% under the WETTING menu. This is a percentage chance that any activation happens at all. This option wraps all options chosen for output!
 
 Optional: A temperature sensor can be added to control the secondary relay. It can control the relay with a desired holding temp by changing the Idle Temp option in the HEAT menu. If left 0 or temp sensor is not present you can still use the secondary relay by pressing the LEFT button on the home screen to activate. All relays will turn on once the program has ended.
 
