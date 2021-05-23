@@ -48,9 +48,15 @@ Here is a flowchart outlining the internal operation.![Flowchart](https://user-i
 
 Recommended first time operation. PLEASE SEE THE MENU DESCRIPTION FILE AS NEEDED!
 
-On first powerup all the internal variables are 0's. First determine which relay pin/s you are using. IMPORTANT NOTE! While using the LCD shield some pins are not available. Relay pins can be (2, 3, 11, 12 ,13) however if the optional flow sensor is used it must be connected to either of the interrupt pins (2, 3). Also you will need to consider which pin to use for the optional temp sensor. A sample configuration may look like this. Be sure to change the option "OutPutInvert'' to change the relay behaviour if needed! This option will affect both relay channels! 
+On first powerup all the internal variables are 0's. First determine which relay pin/s you are using. IMPORTANT NOTE! While using the LCD shield some pins are not available. Relay pins can be (2, 3, 11, 12 ,13) however if the optional flow sensor is used it must be connected to either of the interrupt pins (2, 3). Also you will need to consider which pin to use for the optional temp sensor. Be sure to change the option "OutPutInvert'' to change the relay behaviour if needed! This option will affect both relay channels! If your LCD shield buttons aren't working you may need to change the default read values here.
+        
+        const int right = 60;
+        const int up = 200;
+        const int down = 400;
+        const int left = 600;
+        const int select = 800;
 
-A HARD RESET SHOULD BE PERFORMED AFTER CHANGING ANY HARDWARE OPTIONS!!
+A sample configuration may look like this.  A HARD RESET SHOULD BE PERFORMED AFTER CHANGING ANY HARDWARE OPTIONS!!
 
 ![Sample setup](https://user-images.githubusercontent.com/83486730/119257420-13f29000-bb7a-11eb-9127-8d80300957a5.jpg)
 
