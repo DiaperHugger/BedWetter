@@ -127,4 +127,12 @@ This sets the pulse time in seconds to chop the output. Default of 0 will have n
 
 SENSORS: TEMP:
 
-To add a temp sensor you must connect a compatable sensor (DS18B20) to the Arduino and also change the hard coded pin accordingly! If a sensor is found the display will show the last 8 hex digits of the sensor ID and the current temp. By default the temps are in celsus but you can change to farenhight here if desired. If no sensor is found then the temps indicator on the home screen is left blank.
+To add a temp sensor you must connect a compatable sensor (DS18B20) to the Arduino and also change the hard coded pin accordingly!
+
+      const byte ONEWIRE_PIN = 13;
+      
+If a sensor is found the display will show the last 8 hex digits of the sensor ID and the current temp. By default the temps are in celsus but you can change to farenhight here if desired. If no sensor is found then the temps indicator on the home screen is left blank.
+
+SENSORS: FLOW:
+
+If a flow 
