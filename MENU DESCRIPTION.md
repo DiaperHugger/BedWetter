@@ -63,4 +63,14 @@ WETTING: RANDOM: PROFILE
    
    These defaults can be changed to fit taste and consist of a MIN/MAX interval and percentage +/- for the duration to add a bit of randomness.
  
+![Wetting wet interval](https://user-images.githubusercontent.com/83486730/119259319-8d8e7c00-bb82-11eb-92c5-c7a72f9172a6.jpg)
 
+WETTING: WET INTVAL:
+
+This is the number of intervals to divide the TOTAL SLEEP time.
+
+![Wetting wet duration](https://user-images.githubusercontent.com/83486730/119259347-b4e54900-bb82-11eb-941f-059c9d01eaf3.jpg)
+
+WETTING: INTVAL DUR/s:
+
+This is the duration in seconds for the wetting event. 
