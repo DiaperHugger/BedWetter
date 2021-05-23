@@ -41,4 +41,26 @@ WETTING: RANDOM: NONE
 WETTING: RANDOM: PURE
     
    This will create random interval and duration times using the entered values as limts. Note that the total number of intervals will not change only the interval times! 
+   
+![Wetting Profile](https://user-images.githubusercontent.com/83486730/119259257-37213d80-bb82-11eb-9dd2-9e701fad24d9.jpg)
+
+WETTING: RANDOM: PROFILE
+
+   This options will ignore entered INTERVAL and DURATION. You can choose a percentage distrubution (100% total) across the 5 different profiles (FLOOD, HEAVY, SPURTS, DAMP, DRY). You can also choose the durations for each profile type. The intervals for each profile are hard coded. 
+   
+      float FloodMargin = 0.15;
+      uint8_t FloodEventsMin = 1;
+      uint8_t FloodEventsMax = 3;
+      float HeavyMargin = 0.15;
+      uint8_t HeavyEventsMin = 3;
+      uint8_t HeavyEventsMax = 5;
+      float SpurtsMargin = 0.15;
+      uint8_t SpurtsEventsMin = 10;
+      uint8_t SpurtsEventsMax = 20;
+      float DampMargin = 0.0;
+      uint8_t DampEventsMin = 5;
+      uint8_t DampEventsMax = 8;
+   
+   These defaults can be changed to fit taste and consist of a MIN/MAX interval and percentage +/- for the duration to add a bit of randomness.
  
+
