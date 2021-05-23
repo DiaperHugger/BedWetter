@@ -1,5 +1,7 @@
 This project is part of a collaborative effort to create a "Bed Wetting Simulator". https://www.adisc.org/forum/threads/bed-wetting-simulator-updates.151608/ for discussion and help. PLEASE READ AND ABIDE BY THE FORUM RULES!! 18+ COMMUNITY!! Code at https://github.com/DiaperHugger/BedWetter. V0.3.1 Updated 5/23/21
 
+THIS CODE COMES WITH NO IMPLIED WARRANTY!! USE AT YOUR OWN RISK!!
+
 
 This device is intended to simulate the experience of bed wetting with the appropriate hardware. This version is intended for Arduino UNO + LCD Shield with buttons. This version supports a pump relay as well as a secondary relay that can be temperature controls. 
 
@@ -40,54 +42,23 @@ Below is a description of the menu structure.
 5: "NewRun" tag indicates new times will be generated with selected options.
 6: Temperature will display is sensor is present. Can be changed from C to F in sensor menu.
 
-Recommended first time operation.
+Recommended first time operation. PLEASE SEE TO THE MENU DESCRIPTION FILE AS NEEDED!
 
-On first powerup all the internal variables are 0's. First determine which relay pin/s you are using. IMPORTANT NOTE! While using the LCD sheild some pins are not available. Relay pins can be (2, 3, 11, 12 ,13) however if the optional flow sensor is used it must be connected to either of the interrupt pins (2, 3). Also you will need to consider which pin to use for the optional temp sensor. A sample configuration may look like this.
+On first powerup all the internal variables are 0's. First determine which relay pin/s you are using. IMPORTANT NOTE! While using the LCD sheild some pins are not available. Relay pins can be (2, 3, 11, 12 ,13) however if the optional flow sensor is used it must be connected to either of the interrupt pins (2, 3). Also you will need to consider which pin to use for the optional temp sensor. A sample configuration may look like this. Be sure to change the option "OutPutInvert" to change the relay behaviour if needed! This option will effect both relay channels! 
+
+A HARD RESET SHOULD BE PREFORMED AFTER CHANGING ANY HARDWARE OPTIONS!!
+
 ![Sample setup](https://user-images.githubusercontent.com/83486730/119257420-13f29000-bb7a-11eb-9127-8d80300957a5.jpg)
 
+You can check both relay's for operation. For the pump/solenoid relay go to the CONTROL menu and choose PRIME. This is intended for priming the lines prior to use. The secondary relay can be activated with or without a temp sensor. While on the home screen push the LEFT button. This will activate the relay immedeitly if the IdleTemp is set to 0 degress celseus. 
 
+Next choose interval type (NONE, PURE, PROFILE). Enter the desiered INTERVAL count and DURATION you want in the WETTING menu. Note that if PROFILE is chosen the INTEVAL and DURATION are ignored in favor of the Profile System.
 
+While on the home screen press the SELECT button to start. If NONE was chosen as the interval type the pump/solenoid relay should activate immedietly if there was no INITIAL DLY was entered. If PURE was chosen then random events are generated using INTERVAL and DURATION as limits.
 
+A chance outcome can be used with the WET CHANCE% under the WETTING menu. This is a percentage chance that any activation happens at all. This option wraps are options chosen for output!
 
+Optional: A temperature sensor can be added to control the secondary relay. It can control the relay with a desiered holding temp by changing the Idle Temp option in the HEAT menu. If left 0 or temp sensor is not present you can still use the secondary relay by pressing the LEFT button on the home screen to activate. All relays will turn on once the program has ended.
 
-List of input variables: 
+A flow sensor can be added to track total liquid used and also to get a sence the amount of liquid used for a specific duration. See menu description for information on setup and calibration!
 
-  TIMES Menu:
-
-    Total Sleep Time: Total running time in hours.
-
-    Initial Delay: Delay first interval with a delay in seconds.
-
-  WETTING Menu:
-
-    Wet Chance%: This value determines whether the output will activate during the Total Sleep Time. if left 0 the chance is 100%.
-
-    Random: Option "Pure" will randomize the time intervals and durations using the INTERVAL and DURATION values as limits.
-
-    Wet Interval: This is the number of intervals to activate the output during the Total Sleep time.
-
-    Interval Duration: This is the duration to activate the output in seconds.
-
-  CONTROL Menu:
-
-    Prime: This is a bypass that will activate the output in order to purge or prime the line.
-
-    BackLight: This can control the backlight for the LCD shield and in most cases is pin 10. The pin must be entered manually. USE AT YOUR OWN RISK!
-
-    OutPut Pin: This is the output pin for the relay or pump.
-    
-    OutPut Invert: This will invert the output behavior of the relay pin.
-
-    (These variables can introduce a duty cycle while the output is active.)
-
-      -Duty Cycle%: This is a percentage of "ON" time within the Duty Pulse time. 
-
-      -Duty Pulse: This is the pulse time in seconds.
-
-   RESET Menu
-
-    This function will erase the stored settings.
-
-
-
-THIS CODE COMES WITH NO IMPLIED WARRANTY!! USE AT YOUR OWN RISK!!
