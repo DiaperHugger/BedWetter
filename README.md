@@ -1,7 +1,5 @@
 This project is part of a collaborative effort to create a "Bed Wetting Simulator". https://www.adisc.org/forum/threads/bed-wetting-simulator-updates.151608/ for discussion and help. PLEASE READ AND ABIDE BY THE FORUM RULES!! 18+ COMMUNITY!! Code at https://github.com/DiaperHugger/BedWetter. V0.3.1 Updated 5/23/21
 
-![home](https://user-images.githubusercontent.com/83486730/119256131-f8848680-bb73-11eb-8da6-d6109a250905.jpg)
-
 
 This device is intended to simulate the experience of bed wetting with the appropriate hardware. This version is intended for Arduino UNO + LCD Shield with buttons. This version supports a pump relay as well as a secondary relay that can be temperature controls. 
 
