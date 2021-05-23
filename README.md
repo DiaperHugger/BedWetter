@@ -1,10 +1,9 @@
-This project is part of a collaborative effort to create a "Bed Wetting Simulator". https://www.adisc.org/forum/threads/bed-wetting-simulator-updates.151608/ for discussion and help. PLEASE READ AND ABIDE BY THE FORUM RULES!! 18+ COMMUNITY!! Code at https://github.com/DiaperHugger/BedWetter. V0.2.5 Updated 5/10/21
+This project is part of a collaborative effort to create a "Bed Wetting Simulator". https://www.adisc.org/forum/threads/bed-wetting-simulator-updates.151608/ for discussion and help. PLEASE READ AND ABIDE BY THE FORUM RULES!! 18+ COMMUNITY!! Code at https://github.com/DiaperHugger/BedWetter. V0.3.1 Updated 5/23/21
+
+![home](https://user-images.githubusercontent.com/83486730/119256131-f8848680-bb73-11eb-8da6-d6109a250905.jpg)
 
 
-THIS CODE COMES WITH NO IMPLIED WARRANTY!! USE AT YOUR OWN RISK!!
-
-
-This device is intended to simulate the experience of bed wetting with the appropriate hardware. This version is intended for Arduino UNO + LCD Shield with buttons. This device controls a selectable output pin intended to control a pump or solenoid. The output behavior is derived by the input variables.
+This device is intended to simulate the experience of bed wetting with the appropriate hardware. This version is intended for Arduino UNO + LCD Shield with buttons. This version supports a pump relay as well as a secondary relay that can be temperature controls. 
 
 Required hardware for basic operation:
 
@@ -12,6 +11,11 @@ Required hardware for basic operation:
     Arduino compatible LCD Shield with buttons
     Relay or relay board module
     Solenoid or pump
+    
+Optional hardware:
+
+    Temperature sensor (DS18B20) for secondary relay control
+    Flow meter (Hall Sensor Flowmeter)
 
 This version can support two different configurations. 
 
@@ -67,3 +71,4 @@ List of input variables:
 
 
 
+THIS CODE COMES WITH NO IMPLIED WARRANTY!! USE AT YOUR OWN RISK!!
