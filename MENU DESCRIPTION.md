@@ -133,6 +133,19 @@ To add a temp sensor you must connect a compatable sensor (DS18B20) to the Ardui
       
 If a sensor is found the display will show the last 8 hex digits of the sensor ID and the current temp. By default the temps are in celsus but you can change to farenhight here if desired. If no sensor is found then the temps indicator on the home screen is left blank.
 
+![Uploading sensors flow prime.jpg…]()
+
 SENSORS: FLOW:
 
-If a flow 
+If a flow sensor is added you can track the total liquid moved during the program run. The sensor input pin must be enterd manualy and must use an interrupt pin on the Arduino UNO (2, 3);
+
+      uint8_t FlowPin = 2;
+This menu has three options (OFF, SHOW, PRIME). OFF/SHOW will change the behaviour on the home screen. If the sensor is working you can choose PRIME to activate the pump/solenoid and see the flow counter change.
+
+In order to display proper liquid amounts you must calibrate the sensor.
+
+Make sure the sensor is working the reset the Arduino. Using a measuring cup or scale use this menu to despence a full 1 liter of liquid. Preform this task a few times to ensure a proper reading. Write down the displayed count and enter this into the code here.
+
+      uint16_t FlowCal = 1540;
+      
+The home screen should now show the total liquid moved in liters.
