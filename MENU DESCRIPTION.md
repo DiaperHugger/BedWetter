@@ -4,10 +4,15 @@
 Home Screen:
 
    1: The diaper icon will flash when the program is running.
+
    2: The "H" indicates that the secondary relay is active. A "h" indicates that an IdleTemp is controlling the secondary relay with optional temp sensor.
+
    3: Total liquid flow can be displayed with optional flow meter.
+
    4: RunTime counter keeps track of total program run time. 
+
    5: "NewRun" tag indicates new times will be generated with selected options.
+
    6: Temperature will display if sensor is present. Can be changed from C to F in sensor menu.
 
 
