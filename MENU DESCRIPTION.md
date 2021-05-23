@@ -11,8 +11,8 @@ Home Screen:
     6: Temperature will display if sensor is present. Can be changed from C to F in sensor menu.
 
 
-![Wetting chance](https://user-images.githubusercontent.com/83486730/119258648-74d09700-bb7f-11eb-9ba9-00a58396e87c.jpg)
 
+![Times Sleep](https://user-images.githubusercontent.com/83486730/119258661-80bc5900-bb7f-11eb-9de2-0435f479f17b.jpg)
 
 TIMES: TOTAL SLEEP/h:
 
