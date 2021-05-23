@@ -28,5 +28,17 @@ TIMES: INITIAL DLY/m:
 
 WETTING: WET CHANCE%:
 
-    This is a percentage chance that any relay activation will happen. If the TOTAL SLEEP is entered the RUNTIME counter will still count.![Uploading Wetting chance.jpg…]()
+    This is a percentage chance that any relay activation will happen. If the TOTAL SLEEP is entered the RUNTIME counter will still count.
+    
+![Wetting none](https://user-images.githubusercontent.com/83486730/119258976-dc3b1680-bb80-11eb-9231-c16c7d6c9ff7.jpg)
+
+WETTING: RANDOM: NONE
+
+    This will divied the INTERVAL and DURATION into the TOTAL SLEEP time evenly.
+    
+![Wetting pure](https://user-images.githubusercontent.com/83486730/119259031-291eed00-bb81-11eb-9d02-79d085678ba2.jpg)
+
+WETTING: RANDOM: PURE
+    
+    This will create random interval and duration times using the entered values as limts. Note that the total number of intervals will not change only the interval times! 
  
