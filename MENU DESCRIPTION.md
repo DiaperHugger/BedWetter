@@ -136,7 +136,7 @@ To add a temp sensor you must connect a compatible sensor (DS18B20) to the Ardui
 
       const byte ONEWIRE_PIN = 13;
       
-If a sensor is found the display will show the last 8 hex digits of the sensor ID and the current temp. By default the temps are in celsus but you can change to fahrenheit here if desired. If no sensor is found then the temps indicator on the home screen is left blank.
+If a sensor is found the display will show the last 8 hex digits of the sensor ID and the current temp. By default the temps are in celsus but you can change to fahrenheit here if desired. If no sensor is found then the temps indicator on the home screen is left blank. You can also change between C and F in this menu.
 
 ![sensors flow prime](https://user-images.githubusercontent.com/83486730/119260503-ead8fc00-bb87-11eb-8389-1385d99381d8.jpg)
 
