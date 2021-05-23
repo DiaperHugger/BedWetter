@@ -86,3 +86,16 @@ These are the different profiles to choose a total percentage distribution acros
 PROFILE: (FLOOD DUR/s, HEAVY DUR/s, SPURTS DUR/s, DAMP DUR/s)
 
 These are the different durations for each profile to set a target (15% +/- by default). You can change this hard coded percentage to fit the desired randomness.
+
+![Control prime](https://user-images.githubusercontent.com/83486730/119259672-2671c700-bb84-11eb-9c5c-0a323429638a.jpg)
+
+CONTROL: PRIME:
+
+This is intended to be used to prime the line prior to use.
+
+![Control backlight](https://user-images.githubusercontent.com/83486730/119259730-6cc72600-bb84-11eb-8494-f2e831763b6c.jpg)
+
+CONTROL: BACKLIGHT:
+
+This can control the LCD backlight if you manually enter the LCD backlight pin value in the code prior to uploading. Possible option is pin 10 but USE AT YOUR OWN RISK!
+
