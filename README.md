@@ -69,7 +69,7 @@ While on the home screen press the SELECT button to start. If NONE was chosen as
 
 A chance outcome can be used with the WET CHANCE% under the WETTING menu. This is a percentage chance that any activation happens at all. This option wraps all options chosen for output!
 
-Optional: A temperature sensor can be added to control the secondary relay. It can control the relay with a desired holding temp by changing the Idle Temp option in the HEAT menu. If left 0 or temp sensor is not present you can still use the secondary relay by pressing the LEFT button on the home screen to activate. All relays will turn on once the program has ended.
+Optional: A temperature sensor can be added to control the secondary relay. It can control the relay with a desired holding temp by changing the Idle Temp option in the HEAT menu. If left 0 or temp sensor is not present you can still use the secondary relay by pressing the LEFT button on the home screen to activate. All relays will turn off once the program has ended.
 
 A flow sensor can be added to track total liquid used and also to get a sense the amount of liquid used for a specific duration. See menu description for information on setup and calibration!
 
