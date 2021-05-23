@@ -46,7 +46,7 @@ Here is a simple flowchart outlining the internal operation.![Flowchart](https:/
 
 6: Temperature will display if sensor is present. Can be changed from C to F in sensor menu.
 
-Recommended first time operation. PLEASE SEE TO THE MENU DESCRIPTION FILE AS NEEDED!
+Recommended first time operation. PLEASE SEE THE MENU DESCRIPTION FILE AS NEEDED!
 
 On first powerup all the internal variables are 0's. First determine which relay pin/s you are using. IMPORTANT NOTE! While using the LCD shield some pins are not available. Relay pins can be (2, 3, 11, 12 ,13) however if the optional flow sensor is used it must be connected to either of the interrupt pins (2, 3). Also you will need to consider which pin to use for the optional temp sensor. A sample configuration may look like this. Be sure to change the option "OutPutInvert'' to change the relay behaviour if needed! This option will affect both relay channels! 
 
