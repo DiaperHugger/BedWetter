@@ -99,3 +99,32 @@ CONTROL: BACKLIGHT:
 
 This can control the LCD backlight if you manually enter the LCD backlight pin value in the code prior to uploading. Possible option is pin 10 but USE AT YOUR OWN RISK!
 
+![Control pump](https://user-images.githubusercontent.com/83486730/119259798-d47d7100-bb84-11eb-8a98-02fb85263ffa.jpg)
+
+CONTROL: PUMPPIN:
+
+Select which pin to use as the pump/solenoid relay pin. While using the LCD shield your pins are limited to (2, 3, 11, 12, 13). Pin (0, 1) are used for the USB serial connection on the Arduino. You can use them but will lose serial feedback. Remember to hard reset after changing hardware options!!
+
+![Control outputinvert](https://user-images.githubusercontent.com/83486730/119259852-068ed300-bb85-11eb-8dcb-2ebd629206c1.jpg)
+
+CONTROL: OUTPUTINVERT:
+
+This will invert the output behaviour for both relay pins.
+
+![Control duty cycle](https://user-images.githubusercontent.com/83486730/119259938-62595c00-bb85-11eb-99e8-7a3976b32e23.jpg)
+
+CONTROL: DUTY CYCLE%:
+
+If needed the output can be chooped with a duty cycle. This changes the percentage of ON time within the DUTY PULSE time. Default of 0 will have no effect.
+
+![Control duty pulse](https://user-images.githubusercontent.com/83486730/119259970-8ddc4680-bb85-11eb-8c75-02aa3f3cb9d7.jpg)
+
+CONTROL: DUTY PULSE:
+
+This sets the pulse time in seconds to chop the output. Default of 0 will have no effect.
+
+![sensors temp valid](https://user-images.githubusercontent.com/83486730/119260087-0f33d900-bb86-11eb-9b46-bbf62f05e41c.jpg)
+
+SENSORS: TEMP:
+
+To add a temp sensor you must connect a compatable sensor (DS18B20) to the Arduino and also change the hard coded pin accordingly! If a sensor is found the display will show the last 8 hex digits of the sensor ID and the current temp. By default the temps are in celsus but you can change to farenhight here if desired. If no sensor is found then the temps indicator on the home screen is left blank.
