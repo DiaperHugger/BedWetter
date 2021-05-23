@@ -24,7 +24,28 @@ Option Two is a pump activated by the relay. The pump and water source should be
 ![20210507_235701](https://user-images.githubusercontent.com/83486730/117649057-ea7e4100-b143-11eb-8497-7afaa3d84afc.jpg)
 
 
-The BedWetter will only function if the Total Sleep Time, Wet Interval, and Wet Duration values are NOT zero. The other variables are optional to the overall function. The SELECT button will initiate the program running and can also pause/resume the current program. Once the device has started the interval and duration times are created. These times will persist if the operation is paused or variables are changed. These times will only be updated if the Total Sleep Time has ended or the Arduino is reset. If a Wet Chance% is entered the device will determine the percentage chance that any activation will happen for the duration of the Total Sleep Time regardless of the other variables. The RunTime counter on the home screen will count regardless of the outcome of the chance. Here is a simple flowchart outlining the internal operation. ![BedWETTER flowchart](https://user-images.githubusercontent.com/83486730/117658232-5c0fbc80-b14f-11eb-8bdc-1c7beced6b0e.jpg)
+The BedWetter will only function if the Total Sleep Time, Wet Interval, and Wet Duration values are NOT zero. The other variables are optional to the overall function. The SELECT button will initiate the program running and can also pause/resume the current program. Once the device has started the interval and duration times are created. These times will persist if the operation is paused or variables are changed. The current program can be reset by pressing the RIGHT button while on the home screen. If a Wet Chance% is entered the device will determine the percentage chance that any activation will happen for the duration of the Total Sleep Time regardless of the other variables. The RunTime counter on the home screen will count regardless of the outcome of the chance. 
+
+The Profile system will disregare the entered INTEVAL and DURATIONS in favor of he Profile generated system!
+
+Here is a simple flowchart outlining the internal operation.![Flowchart](https://user-images.githubusercontent.com/83486730/119256225-87919e80-bb74-11eb-8c93-9af4e81c8558.jpg)
+
+Below is a description of the menu structure.
+![HOME2](https://user-images.githubusercontent.com/83486730/119256295-df300a00-bb74-11eb-997e-3662c2adf5fe.jpg)
+
+1: The diaper icon will flash when the program is running.
+2: The "H" indicates that the secondary relay is active. A "h" indicates that an IdleTemp is controlling the secondary relay with optional temp sensor.
+3: Total liquid flow can be displayed with optional flow meter.
+4: RunTime counter keeps track of total program run time. 
+5: "NewRun" tag indicates new times will be generated with selected options.
+6: Temperature will display is sensor is present. Can be changed from C to F in sensor menu.
+
+Recommended first time operation.
+
+On first powerup all the internal variables are 0's. First determine which relay pin/s you are using. IMPORTANT NOTE! While using the LCD sheild some pins are not available. Relay pins can be (2, 3, 11, 12 ,13) however if the optional flow sensor is used it must be connected to either of the interrupt pins (2, 3). Also you will need to consider which pin to use for the optional temp sensor. A sample configuration may look like this.
+![Sample setup](https://user-images.githubusercontent.com/83486730/119257420-13f29000-bb7a-11eb-9127-8d80300957a5.jpg)
+
+
 
 
 
