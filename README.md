@@ -58,7 +58,8 @@ On first powerup all the internal variables are 0's. First determine which relay
 
 A sample configuration may look like this.  A HARD RESET SHOULD BE PERFORMED AFTER CHANGING ANY HARDWARE OPTIONS!!
 
-![Sample setup](https://user-images.githubusercontent.com/83486730/119257420-13f29000-bb7a-11eb-9127-8d80300957a5.jpg)
+![sample](https://user-images.githubusercontent.com/83486730/119261478-73599b80-bb8c-11eb-8edd-7658a51a13ab.jpg)
+
 
 You can check both relay's for operation. For the pump/solenoid relay go to the CONTROL menu and choose PRIME. This is intended for priming the lines prior to use. The secondary relay can be activated with or without a temp sensor. While on the home screen push the LEFT button. This will activate the relay immediately if the IdleTemp is set to 0 degrees celsius. 
 
