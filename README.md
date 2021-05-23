@@ -35,6 +35,7 @@ Here is a simple flowchart outlining the internal operation.![Flowchart](https:/
 ![HOME2](https://user-images.githubusercontent.com/83486730/119256295-df300a00-bb74-11eb-997e-3662c2adf5fe.jpg)
 
 1: The diaper icon will flash when the program is running.
+
 2: The "H" indicates that the secondary relay is active. A "h" indicates that an IdleTemp is controlling the secondary relay with optional temp sensor.
 3: Total liquid flow can be displayed with optional flow meter.
 4: RunTime counter keeps track of total program run time. 
