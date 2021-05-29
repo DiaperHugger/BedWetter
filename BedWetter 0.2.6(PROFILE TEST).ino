@@ -529,7 +529,8 @@ void Events() //Triggered by select button and end of EventTrigger stop time
     
     if(WetChance == 1)
     {
-      if((TIMESVar[0].TotalSleepTime != 0) && (WETTINGVar[0].WetInterval != 0) && (WETTINGVar[0].WetDuration != 0))
+      //if((TIMESVar[0].TotalSleepTime != 0) && (WETTINGVar[0].WetInterval != 0) && (WETTINGVar[0].WetDuration != 0))
+      if(TIMESVar[0].TotalSleepTime != 0)
       {
         NextTriggerEventStart = (INTERVALTimes[CurrentInterval - 1]);
         NextTriggerEventStop = (NextTriggerEventStart + DURATIONTimes[CurrentInterval - 1]);
