@@ -1,4 +1,4 @@
-/*BedWETTER v0.3.1  Updated 5/23/21
+/*BedWETTER v0.3.1  Updated 6/3/21
 This project is part of a collaborative effort to create a "Bed Wetting Simulator". This device is intended to simulate the experience of bed wetting with
 the appropriate hardware. 
 https://www.adisc.org/forum/threads/bed-wetting-simulator-updates.151608/ for discussion and help. 
@@ -66,6 +66,8 @@ uint8_t WetChance = 1;
 uint8_t PauseRun = 0;
 uint8_t NewRunTag = 0;
 uint8_t DisplayTemp = 1;
+uint8_t OutputFeedback = 0;
+uint8_t LastOutputFeedback = 0;
 
 int8_t CurrentVal;
 int8_t LastCurrentVal;
@@ -405,6 +407,7 @@ void loop()
       if(GO == 1)
       {
         EventTrigger();
+        OutputFeedbackFUNC();
       }
       if(RUNLoop == 1)
       {
@@ -672,6 +675,7 @@ void RlyOFF()
   {
     digitalWrite(RelayPin, LOW);
   }
+  OutputFeedback = 1;
 }
 void RlyON()
 {
@@ -683,6 +687,29 @@ void RlyON()
   else
   {
     digitalWrite(RelayPin, HIGH);
+  }
+  OutputFeedback = 2;
+}
+
+void OutputFeedbackFUNC()
+{
+  if((OutputFeedback == 1) && (LastOutputFeedback != OutputFeedback))
+  {
+    char buff[10];
+    sprintf(buff, "%5d, ", BedWetter[0].RunTime);
+    Serial.print(F("TIME:"));
+    Serial.print(buff);
+    Serial.println(F("OFF"));
+    LastOutputFeedback = 1;
+  }
+  else if((OutputFeedback == 2) && (LastOutputFeedback != OutputFeedback))
+  {
+    char buff[10];
+    sprintf(buff, "%5d, ", BedWetter[0].RunTime);
+    Serial.print(F("TIME:"));
+    Serial.print(buff);
+    Serial.println(F("ON"));
+    LastOutputFeedback = 2;
   }
 }
 
@@ -2083,6 +2110,8 @@ void RESET()
   LastButtonPress = 0; 
   ButtonDebounce = 0;
   NewRunTag = 0;
+  OutputFeedback = 0;
+  LastOutputFeedback = 0;
   BedWetter[0].RunTime = 0;
   BedWetter[0].SolenoidState = 0;
   BedWetter[0].HeatState = 0;
