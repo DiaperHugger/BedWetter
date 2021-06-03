@@ -73,4 +73,21 @@ Optional: A temperature sensor can be added to control the secondary relay. It c
 
 A flow sensor can be added to track total liquid used and also to get a sense the amount of liquid used for a specific duration. See menu description for information on setup and calibration!
 
+Serial feedback is also available. In version v0.3.1 the serial feedback shows all generated times upon the start of a new run. It will also print the activation times for the solenoid/pump relay as they happen. Output should look something like this:
 
+    EVEN
+    I: 1, T:    0, D:10
+    I: 2, T:  350, D:10
+    I: 3, T:  710, D:10
+    I: 4, T: 1070, D:10
+    I: 5, T: 1430, D:10
+    I: 6, T: 1790, D:10
+    I: 7, T: 2150, D:10
+    I: 8, T: 2510, D:10
+    I: 9, T: 2870, D:10
+    I:10, T: 3230, D:10
+    --------------------
+    TIME:    1, ON
+    TIME:   11, OFF
+    TIME:  351, ON
+    TIME:  361, OFF
