@@ -30,7 +30,8 @@ The BedWetter will only function if the Total Sleep Time, Wet Interval, and Wet 
 
 The Profile system will disregard the entered INTERVAL and DURATIONS in favor of the Profile generated system!
 
-Here is a flowchart outlining the internal operation.![Flowchart](https://user-images.githubusercontent.com/83486730/119256225-87919e80-bb74-11eb-8c93-9af4e81c8558.jpg)
+Here is a flowchart outlining the internal operation.![BW](https://user-images.githubusercontent.com/83486730/120636019-fd71f180-c421-11eb-8cc2-13e85cf1cfe3.jpeg)
+
 
 ![HOME2](https://user-images.githubusercontent.com/83486730/119256295-df300a00-bb74-11eb-997e-3662c2adf5fe.jpg)
 
