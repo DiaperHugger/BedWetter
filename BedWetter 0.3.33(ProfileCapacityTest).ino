@@ -20,22 +20,22 @@ volatile int FlowAmount;
 const byte ONEWIRE_PIN = 13;
 
 //Profile variables
-int FloodCapacityMargin = 0; // +/- millileters
-float FloodMargin = 0.10;      // Percent variation per event
-uint8_t FloodEventsMin = 1;    // Min events
-uint8_t FloodEventsMax = 3;    // Max evetns
+float FloodCapacityMargin = 0.10;   // +/- Percent of diaper capacity
+float FloodMargin = 0.10;           // Percent variation per event
+uint8_t FloodEventsMin = 1;         // Min events
+uint8_t FloodEventsMax = 3;         // Max evetns
 
-int HeavyCapacityMargin = 0;
+float HeavyCapacityMargin = -0.10;
 float HeavyMargin = 0.05;
 uint8_t HeavyEventsMin = 3;
 uint8_t HeavyEventsMax = 5;
 
-int SpurtsCapacityMargin = 0;
-float SpurtsMargin = 0.15;
+float SpurtsCapacityMargin = -0.30;
+float SpurtsMargin = 0.25;
 uint8_t SpurtsEventsMin = 10;
-uint8_t SpurtsEventsMax = 20;
+uint8_t SpurtsEventsMax = 15;
 
-int DampCapacityMargin = 0;
+float DampCapacityMargin = -0.40;
 float DampMargin = 0.0;
 uint8_t DampEventsMin = 5;
 uint8_t DampEventsMax = 8;
@@ -567,30 +567,35 @@ void Events() //Triggered by select button and end of EventTrigger stop time
         uint8_t ProfileRotation = random(1, 100);
         if(ProfileRotation <= PROFILEVar[0].Flood)
         {
+          Serial.println();
           Serial.println(F("FLOOD"));
           Serial.println(F("-----------"));
           FLOOD();
         }
         else if((ProfileRotation > PROFILEVar[0].Flood) && (ProfileRotation <= (PROFILEVar[0].Heavy + PROFILEVar[0].Flood)))
         {
+          Serial.println();
           Serial.println(F("HEAVY"));
           Serial.println(F("-----------"));
           HEAVY();
         }
         else if((ProfileRotation > (PROFILEVar[0].Heavy + PROFILEVar[0].Flood)) && (ProfileRotation <= ((PROFILEVar[0].Heavy + PROFILEVar[0].Flood) + PROFILEVar[0].Spurts)))
         {
+          Serial.println();
           Serial.println(F("SPURTS"));
           Serial.println(F("-----------"));
           SPURTS();
         }
         else if((ProfileRotation > ((PROFILEVar[0].Heavy + PROFILEVar[0].Flood) + PROFILEVar[0].Spurts)) && (ProfileRotation <= (((PROFILEVar[0].Heavy + PROFILEVar[0].Flood) + PROFILEVar[0].Spurts) + PROFILEVar[0].Damp)))
         {
+          Serial.println();
           Serial.println(F("DAMP"));
           Serial.println(F("-----------"));
           DAMP();
         }
         else if(ProfileRotation > (((PROFILEVar[0].Heavy + PROFILEVar[0].Flood) + PROFILEVar[0].Spurts) + PROFILEVar[0].Damp))
         {
+          Serial.println();
           Serial.println(F("DRY"));
           Serial.println(F("-----------"));
           Interval = 0;
@@ -2078,7 +2083,7 @@ void ProfileDistributionLimit()
 
 void FLOOD()
 {
-  uint16_t AdjCapacity = PROFILEVar[0].Capacity + (FloodCapacityMargin / 100);
+  uint16_t AdjCapacity = PROFILEVar[0].Capacity + (PROFILEVar[0].Capacity * FloodCapacityMargin);
   float CapacityTimeVar = (float(AdjCapacity * 100) / (PROFILEVar[0].FlowRate * 10)) * 60;
   uint16_t ProfileIntervals = (random((FloodEventsMin * 1000), ((FloodEventsMax * 1000) + 999)) / 1000);//Find number of weetings
   uint16_t Duration = CapacityTimeVar / ProfileIntervals;
@@ -2110,7 +2115,7 @@ void FLOOD()
 }
 void HEAVY()
 {
-  uint16_t AdjCapacity = PROFILEVar[0].Capacity + (HeavyCapacityMargin / 100);
+  uint16_t AdjCapacity = PROFILEVar[0].Capacity + (PROFILEVar[0].Capacity * HeavyCapacityMargin);
   float CapacityTimeVar = (float(AdjCapacity * 100) / (PROFILEVar[0].FlowRate * 10)) * 60;
   uint16_t ProfileIntervals = (random((HeavyEventsMin * 1000), ((HeavyEventsMax * 1000) + 999)) / 1000);//Find number of weetings
   uint16_t Duration = CapacityTimeVar / ProfileIntervals;
@@ -2142,7 +2147,7 @@ void HEAVY()
 }
 void SPURTS()
 {
-  uint16_t AdjCapacity = PROFILEVar[0].Capacity + (SpurtsCapacityMargin / 100);
+  uint16_t AdjCapacity = PROFILEVar[0].Capacity + (PROFILEVar[0].Capacity * SpurtsCapacityMargin);
   float CapacityTimeVar = (float(AdjCapacity * 100) / (PROFILEVar[0].FlowRate * 10)) * 60;
   uint16_t ProfileIntervals = (random((SpurtsEventsMin * 1000), ((SpurtsEventsMax * 1000) + 999)) / 1000);//Find number of weetings
   uint16_t Duration = CapacityTimeVar / ProfileIntervals;
@@ -2173,7 +2178,7 @@ void SPURTS()
 }
 void DAMP()
 {
-  uint16_t AdjCapacity = PROFILEVar[0].Capacity + (DampCapacityMargin / 100);
+  uint16_t AdjCapacity = PROFILEVar[0].Capacity + (PROFILEVar[0].Capacity * DampCapacityMargin);
   float CapacityTimeVar = (float(AdjCapacity * 100) / (PROFILEVar[0].FlowRate * 10)) * 60;
   uint16_t ProfileIntervals = (random((DampEventsMin * 1000), ((DampEventsMax * 1000) + 999)) / 1000);//Find number of weetings
   uint16_t Duration = CapacityTimeVar / ProfileIntervals;
