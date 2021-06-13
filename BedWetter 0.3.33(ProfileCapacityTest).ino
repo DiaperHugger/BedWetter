@@ -271,7 +271,7 @@ String MENUS[] = {"TIMES", "WETTING", "PROFILE", "CONTROL", "SENSORS", "HEAT", "
 
 String TIMESItems[] =   {"Total Sleep/h:", "Initial Dly/m:"};
 String WETTINGItems[] = {"Wet Chance%:", "Random:", "Wet Intval:", "Intval Dur/s:"};
-String PROFILEItems[] = {"FLOOD%", "HEAVY%", "SPURTS%", "DAMP%", "DRY%", "CAPACITY/ml:", "FlowRate/ml"};
+String PROFILEItems[] = {"FLOOD%", "HEAVY%", "SPURTS%", "DAMP%", "DRY%", "CAPACITY/ml:", "FlowRate/ml:"};
 String CONTROLItems[] = {"Prime:", "BackLight", "PumpPin:", "OutPutInvert:", "Duty Cycle%:", "Duty Pulse:"};
 String SENSORSItems[] = {"Temp:", "Flow:"};
 String HEATItems []   = {"RlyPin:", "IdleTemp:"};
