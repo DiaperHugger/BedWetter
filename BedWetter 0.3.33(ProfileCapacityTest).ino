@@ -1,4 +1,4 @@
-/*BedWETTER v0.3.33  Updated 6/12/21
+/*BedWETTER v0.3.33  Updated 7/1/21
 This project is part of a collaborative effort to create a "Bed Wetting Simulator". This device is intended to simulate the experience of bed wetting with
 the appropriate hardware. 
 https://www.adisc.org/forum/threads/bed-wetting-simulator-updates.151608/ for discussion and help. 
@@ -66,7 +66,6 @@ uint16_t DutyOffSet = 0;
 
 uint8_t GO = 0;
 uint8_t GOHEAT = 0;
-uint8_t RUNLoop = 0;
 uint8_t RandomRun = 0;
 uint8_t MakeTimes = 0;
 uint8_t WetChance = 1;
@@ -76,9 +75,9 @@ uint8_t DisplayTemp = 1;
 uint8_t OutputFeedback = 0;
 uint8_t LastOutputFeedback = 0;
 
-int8_t CurrentVal;
-int8_t LastCurrentVal;
-int8_t CurrentStoredValue;
+uint8_t CurrentVal;
+uint8_t LastCurrentVal;
+uint8_t CurrentStoredValue;
 uint16_t Duration;
 uint8_t Interval;
 uint8_t ProfileDistribution = 100;
@@ -269,7 +268,7 @@ uint16_t DURATIONTimes[50];//Array to store durations for profile wetting.
 
 String MENUS[] = {"TIMES", "WETTING", "PROFILE", "CONTROL", "SENSORS", "HEAT", "RESET"};
 
-String TIMESItems[] =   {"Total Sleep/h:", "Initial Dly/m:"};
+String TIMESItems[] =   {"Total Sleep/h:", "Init Dly/m:"};
 String WETTINGItems[] = {"Wet Chance%:", "Random:", "Wet Intval:", "Intval Dur/s:"};
 String PROFILEItems[] = {"FLOOD%", "HEAVY%", "SPURTS%", "DAMP%", "DRY%", "CAPACITY/ml:", "FlowRate/ml:"};
 String CONTROLItems[] = {"Prime:", "BackLight", "PumpPin:", "OutPutInvert:", "Duty Cycle%:", "Duty Pulse:"};
@@ -410,10 +409,7 @@ void loop()
       {
         EventTrigger();
         OutputFeedbackFUNC();
-      }
-      if(RUNLoop == 1)
-      {
-        RlyInitialization(); //Relay initialization loop
+        RlyInitialization();
       }
       if(GOHEAT)
       {
@@ -459,8 +455,13 @@ void DeriveRunningTime()
 
 void DutyCycle()
 {
-    DutyCycleTime = ((CONTROLVar[0].DutyPulse * 1000) * ((float)CONTROLVar[0].DutyCycle / 100));
-    DutyPulseTime = ((CONTROLVar[0].DutyPulse * 1000) - DutyCycleTime);
+    int Pulse = CONTROLVar[0].DutyPulse;
+    if(Pulse > DURATIONTimes[CurrentInterval - 1])
+    {
+      Pulse = DURATIONTimes[CurrentInterval - 1];
+    }
+    DutyCycleTime = ((Pulse * 1000) * ((float)CONTROLVar[0].DutyCycle / 100));
+    DutyPulseTime = ((Pulse * 1000) - DutyCycleTime);
     if ((CycleTime2 + DutyOffSet) < millis()) 
         {
           if(BedWetter[0].SolenoidState == 0)
@@ -473,47 +474,48 @@ void DutyCycle()
             BedWetter[0].SolenoidState = 0;
             DutyOffSet = DutyPulseTime;
           }
-          CycleTime2 = millis(); //reset time mark
-          //Serial.print("MARK");
+          CycleTime2 = millis();
         }
 }
 
 void EventTrigger()
 {
-  if ((BedWetter[0].RunTime > NextTriggerEventStart) && (BedWetter[0].RunTime < NextTriggerEventStop))
+  if(CurrentInterval != 0)
   {
-    if((CONTROLVar[0].DutyCycle != 0) && (CONTROLVar[0].DutyPulse != 0))
+    if ((BedWetter[0].RunTime > NextTriggerEventStart) && (BedWetter[0].RunTime < NextTriggerEventStop))
     {
-      DutyCycle();
+      if((CONTROLVar[0].DutyCycle != 0) && (CONTROLVar[0].DutyPulse != 0))
+      {
+        DutyCycle();
+      }
+      else
+      {
+        BedWetter[0].SolenoidState = 1;
+      }
     }
-    else
-    {
-      BedWetter[0].SolenoidState = 1;
-    }
-    RUNLoop = 1;
-  }
-  else if (BedWetter[0].RunTime > NextTriggerEventStop)
-  {
-    if(CurrentInterval == 0)//If interval is zero then stop the loop
-    {
-      BedWetter[0].SolenoidState = 0;
-      RUNLoop = 0;
-    }
-    else
+    else if (BedWetter[0].RunTime > NextTriggerEventStop)
     {
       CurrentInterval--;
-    }
-    BedWetter[0].SolenoidState = 0;
-    RlyInitialization();
-    RUNLoop = 0;
-    Events();
-
-    if((TIMESVar[0].TotalSleepTime * 3600) < BedWetter[0].RunTime)//Stop running after sleep time
-    {
-      RESET();
+      BedWetter[0].SolenoidState = 0;
+      RlyInitialization();
+      Events(); // Load next round
     }
   }
+  else
+  {
+    BedWetter[0].SolenoidState = 0;
+    RlyInitialization();
+  }
+  if((TIMESVar[0].TotalSleepTime * 3600) < BedWetter[0].RunTime)//Stop running after sleep time
+  {
+    RESET();
+  }
+  if(NextTriggerEventStart > NextTriggerEventStop)
+  {
+    RESET();
+  }
 }
+
 uint16_t sort_desc(const void *cmp1, const void *cmp2)//Sort function
 {
   uint16_t a = *((uint16_t *)cmp1);
@@ -883,13 +885,17 @@ void LCDDisplayData() //MenuPosition = ROW,COLUMN
       lcd.setCursor(0, 1);
       lcd.print(TIMESItems[Column]);
       lcd.setCursor(15, 1);
-      if(TIMESVar[0].InitialDelay > 9)
+      if(TIMESVar[0].InitialDelay > 99)
+      {
+        lcd.setCursor(13, 1);
+      }
+      else if(TIMESVar[0].InitialDelay > 9)
       {
         lcd.setCursor(14, 1);
       }
       lcd.print(TIMESVar[0].InitialDelay);
       Cursor = 0;
-      SPECIAL = 0;
+      SPECIAL = 1;
       LastMenuPosition = MenuPosition;
     }
     else if ((MenuPosition == 20) && (MenuPosition != LastMenuPosition)) //WETTING Chance FULL Wet:
@@ -1590,7 +1596,7 @@ void ALTERNATE()
     if(LastButtonPress == 2)//UP
       {
         CurrentVal++;
-        if(CurrentVal > 15)
+        if(CurrentVal > 12)
         {
           CurrentVal = 0;
           lcd.setCursor(14, 1);
@@ -1607,7 +1613,7 @@ void ALTERNATE()
       {
         if(CurrentVal == 0)
         {
-          CurrentVal = 15;
+          CurrentVal = 12;
         }
         else
         {
@@ -1623,6 +1629,53 @@ void ALTERNATE()
         lcd.print(CurrentVal);
       }
       TIMESVar[0].TotalSleepTime = CurrentVal;
+  }
+  if(MenuPosition == 11)//Initial delay
+  {
+    if(LastButtonPress == 2)//UP
+      {
+        CurrentVal = CurrentVal + 15;
+        if(CurrentVal > 240)
+        {
+          CurrentVal = 0;
+          lcd.setCursor(13, 1);
+          lcd.print("  ");
+        }
+        lcd.setCursor(15, 1);
+        if(CurrentVal > 99)
+        {
+          lcd.setCursor(13, 1);
+        }
+        else if(CurrentVal > 9)
+        {
+          lcd.setCursor(14, 1);
+        }
+        lcd.print(CurrentVal);
+      }
+    else if(LastButtonPress == 3)//DOWN
+      {
+        if(CurrentVal == 0)
+        {
+          CurrentVal = 240;
+        }
+        else
+        {
+          CurrentVal = CurrentVal - 15;
+        }
+        lcd.setCursor(13, 1);
+        lcd.print("  ");
+        lcd.setCursor(15, 1);
+        if(CurrentVal > 99)
+        {
+         lcd.setCursor(13, 1);
+        }
+        else if(CurrentVal > 9)
+        {
+         lcd.setCursor(14, 1);
+        }
+        lcd.print(CurrentVal);
+      }
+      TIMESVar[0].InitialDelay = CurrentVal;
   }
   if(MenuPosition == 21)//Random
   {
@@ -2217,7 +2270,6 @@ void RESET()
 {
   GO = 0;
   GOHEAT = 0;
-  RUNLoop = 0;
   RandomRun = 0;
   MakeTimes = 0;
   WetChance = 1;
