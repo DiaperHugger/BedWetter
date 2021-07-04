@@ -1,4 +1,4 @@
-/*BedWETTER v0.3.1 Updated 7/1/21
+/*BedWETTER v0.3.2 Updated 7/1/21
 This project is part of a collaborative effort to create a "Bed Wetting Simulator". This device is intended to simulate the experience of bed wetting with
 the appropriate hardware. 
 https://www.adisc.org/forum/threads/bed-wetting-simulator-updates.151608/ for discussion and help. 
@@ -100,7 +100,7 @@ uint8_t LastButtonPress = 0; //1 right, 2 up, 3 down, 4 left, 5 select
 uint8_t ButtonDebounce = 0;
 
 String HomeMessage = "BWv0.3";
-int version = 31;
+int version = 32;
 
 
 const int pin_RS = 8; 
