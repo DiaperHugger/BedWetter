@@ -79,7 +79,7 @@ uint8_t CurrentVal;
 uint8_t LastCurrentVal;
 uint8_t CurrentStoredValue;
 uint16_t Duration;
-uint8_t Interval;
+uint16_t Interval;
 uint8_t ProfileDistribution = 100;
 
 uint16_t NextTriggerEventStart;
@@ -534,9 +534,9 @@ void Events() //Triggered by select button and end of EventTrigger stop time
       if(WETTINGVar[0].Random == 0)//None random interval times
       {
         Serial.println(F("EVEN"));
-        for (int i = (Interval - 1); i >= 1; i--)
+        for (int i = (Interval); i >= 1; i--)
         {
-            uint16_t T = ((TIMESVar[0].TotalSleepTime * 3600) / Interval);
+           uint16_t T = ((TIMESVar[0].TotalSleepTime * 3600) / Interval);
             T = (T * i) - Duration;
             if(TIMESVar[0].InitialDelay != 0)
             {
@@ -548,7 +548,7 @@ void Events() //Triggered by select button and end of EventTrigger stop time
         {
           DURATIONTimes[i] = WETTINGVar[0].WetDuration;
         } 
-        INTERVALTimes[Interval] = TIMESVar[0].InitialDelay * 60;
+        INTERVALTimes[Interval - 1] = TIMESVar[0].InitialDelay * 60;
       }
       else if(WETTINGVar[0].Random == 1)//Pure random interval times
       {
@@ -1596,7 +1596,7 @@ void ALTERNATE()
     if(LastButtonPress == 2)//UP
       {
         CurrentVal++;
-        if(CurrentVal > 9)
+        if(CurrentVal > 12)
         {
           CurrentVal = 0;
           lcd.setCursor(14, 1);
@@ -1613,7 +1613,7 @@ void ALTERNATE()
       {
         if(CurrentVal == 0)
         {
-          CurrentVal = 9;
+          CurrentVal = 12;
         }
         else
         {
