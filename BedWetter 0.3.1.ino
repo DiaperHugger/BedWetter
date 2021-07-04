@@ -1612,7 +1612,7 @@ void ALTERNATE()
     if(LastButtonPress == 2)//UP
       {
         CurrentVal++;
-        if(CurrentVal > 9)
+        if(CurrentVal > 12)
         {
           CurrentVal = 0;
           lcd.setCursor(14, 1);
@@ -1629,7 +1629,7 @@ void ALTERNATE()
       {
         if(CurrentVal == 0)
         {
-          CurrentVal = 9;
+          CurrentVal = 12;
         }
         else
         {
