@@ -2149,7 +2149,7 @@ void FLOOD()
     uint16_t r = random(1, (FloodMargin * 200));
     uint16_t d = map(r, 1, (FloodMargin * 200), FloodLow, FloodHigh);
     DURATIONTimes[i] = d;
-    uint16_t t = random((TIMESVar[0].InitialDelay * 60), TIMESVar[0].TotalSleepTime * 3600);
+    uint16_t t = random((TIMESVar[0].InitialDelay * 60), ((uint16_t(TIMESVar[0].TotalSleepTime) * 3600) + (TIMESVar[0].InitialDelay * 60)));
     INTERVALTimes[i] = t;
   } 
   Serial.print(F("Diaper Capacity/ml: "));
@@ -2181,7 +2181,7 @@ void HEAVY()
     uint16_t r = random(1, (HeavyMargin * 200));
     uint16_t d = map(r, 1, (HeavyMargin * 200), HeavyLow, HeavyHigh);
     DURATIONTimes[i] = d;
-    uint16_t t = random((TIMESVar[0].InitialDelay * 60), TIMESVar[0].TotalSleepTime * 3600);
+    uint16_t t = random((TIMESVar[0].InitialDelay * 60), ((uint16_t(TIMESVar[0].TotalSleepTime) * 3600) + (TIMESVar[0].InitialDelay * 60)));
     INTERVALTimes[i] = t;
   } 
   Serial.print(F("Diaper Capacity/ml: "));
@@ -2212,7 +2212,7 @@ void SPURTS()
     uint16_t r = random(1, (SpurtsMargin * 200));
     uint16_t d = map(r, 1, (SpurtsMargin * 200), SpurtsLow, SpurtsHigh);
     DURATIONTimes[i] = d;
-    uint16_t t = random((TIMESVar[0].InitialDelay * 60), TIMESVar[0].TotalSleepTime * 3600);
+    uint16_t t = random((TIMESVar[0].InitialDelay * 60), ((uint16_t(TIMESVar[0].TotalSleepTime) * 3600) + (TIMESVar[0].InitialDelay * 60)));
     INTERVALTimes[i] = t;
   } 
   Serial.print(F("Diaper Capacity/ml: "));
@@ -2243,7 +2243,7 @@ void DAMP()
     uint16_t r = random(1, (DampMargin * 200));
     uint16_t d = map(r, 1, (DampMargin * 200), DampLow, DampHigh);
     DURATIONTimes[i] = d;
-    uint16_t t = random((TIMESVar[0].InitialDelay * 60), TIMESVar[0].TotalSleepTime * 3600);
+    uint16_t t = random((TIMESVar[0].InitialDelay * 60), ((uint16_t(TIMESVar[0].TotalSleepTime) * 3600) + (TIMESVar[0].InitialDelay * 60)));
     INTERVALTimes[i] = t;
   } 
   Serial.print(F("Diaper Capacity/ml: "));
